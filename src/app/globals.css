@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tertiary-container: #00a2f4;
+  --color-success-olive: #10b981;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-primary-fixed-variant: #783200;
+  --color-surface-tint: #9d4300;
+  --color-primary-fixed: #ffdbca;
+  --color-on-surface-variant: #584237;
+  --color-secondary-fixed-dim: #ffb77d;
+  --color-surface-container-highest: #f6ded3;
+  --color-on-tertiary-fixed-variant: #004b74;
+  --color-primary-container: #f97316;
+  --color-on-surface: #251913;
+  --color-surface-variant: #f6ded3;
+  --color-outline-variant: #e0c0b1;
+  --color-inverse-on-surface: #ffede6;
+  --color-secondary: #904d00;
+  --color-on-primary-container: #582200;
+  --color-background: #fff8f6;
+  --color-surface-container: #ffeae0;
+  --color-background-accent: #ffedd5;
+  --color-on-tertiary-fixed: #001d32;
+  --color-primary-fixed-dim: #ffb690;
+  --color-warning-coral: #fb7185;
+  --color-tertiary: #006398;
+  --color-on-tertiary-container: #003554;
+  --color-text-main: #44403c;
+  --color-on-secondary-container: #663500;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-fixed-dim: #93ccff;
+  --color-primary: #9d4300;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-surface-container-high: #fce3d9;
+  --color-inverse-surface: #3c2d26;
+  --color-secondary-fixed: #ffdcc3;
+  --color-tertiary-fixed: #cde5ff;
+  --color-on-secondary-fixed-variant: #6e3900;
+  --color-on-background: #251913;
+  --color-on-primary-fixed: #341100;
+  --color-surface-container-low: #fff1eb;
+  --color-outline: #8c7164;
+  --color-on-secondary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-on-secondary-fixed: #2f1500;
+  --color-surface: #fff8f6;
+  --color-background-warm: #fafaf9;
+  --color-on-primary: #ffffff;
+  --color-text-muted: #78716c;
+  --color-inverse-primary: #ffb690;
+  --color-surface-bright: #fff8f6;
+  --color-surface-dim: #edd5cb;
+  --color-on-error-container: #93000a;
+  --color-secondary-container: #fe932c;
+
+  --spacing-stack-gap: 1rem;
+  --spacing-section-margin: 2rem;
+  --spacing-gutter: 1rem;
+  --spacing-container-padding: 1.25rem;
+
+  /* Custom text sizes from HTML */
+  --text-headline-lg: 24px;
+  --text-headline-lg--line-height: 32px;
+  --text-label-xs: 12px;
+  --text-label-xs--line-height: 16px;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 26px;
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-display-balance: 36px;
+  --text-display-balance--line-height: 44px;
+  --text-label-sm: 14px;
+  --text-label-sm--line-height: 20px;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+}
+
+@layer base {
+  body {
+    min-height: max(884px, 100dvh);
+    background-color: var(--color-background-warm);
+    color: var(--color-on-surface);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); filter: blur(0px); }
+  50% { transform: scale(1.03); filter: blur(0.5px); }
+}
+
+@utility animate-breathe {
+  animation: breathe 5s ease-in-out infinite;
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
