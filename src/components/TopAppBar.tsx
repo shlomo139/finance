@@ -14,7 +14,6 @@ export default function TopAppBar() {
       <div className="flex items-center gap-3">
         {user ? (
           <UserButton 
-            afterSignOutUrl="/"
             appearance={{
               elements: {
                 avatarBox: "w-9 h-9 border-2 border-[#3C74A6] shadow-sm hover:scale-105 transition-transform"
