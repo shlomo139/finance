@@ -1,66 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-tertiary-container: #00a2f4;
-  --color-success-olive: #10b981;
-  --color-surface-container-lowest: #ffffff;
-  --color-on-primary-fixed-variant: #783200;
-  --color-surface-tint: #9d4300;
-  --color-primary-fixed: #ffdbca;
-  --color-on-surface-variant: #584237;
-  --color-secondary-fixed-dim: #ffb77d;
-  --color-surface-container-highest: #f6ded3;
-  --color-on-tertiary-fixed-variant: #004b74;
-  --color-primary-container: #f97316;
-  --color-on-surface: #251913;
-  --color-surface-variant: #f6ded3;
-  --color-outline-variant: #e0c0b1;
-  --color-inverse-on-surface: #ffede6;
-  --color-secondary: #904d00;
-  --color-on-primary-container: #582200;
-  --color-background: #fff8f6;
-  --color-surface-container: #ffeae0;
-  --color-background-accent: #ffedd5;
-  --color-on-tertiary-fixed: #001d32;
-  --color-primary-fixed-dim: #ffb690;
-  --color-warning-coral: #fb7185;
-  --color-tertiary: #006398;
-  --color-on-tertiary-container: #003554;
-  --color-text-main: #44403c;
-  --color-on-secondary-container: #663500;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-fixed-dim: #93ccff;
-  --color-primary: #9d4300;
-  --color-error: #ba1a1a;
-  --color-error-container: #ffdad6;
-  --color-surface-container-high: #fce3d9;
-  --color-inverse-surface: #3c2d26;
-  --color-secondary-fixed: #ffdcc3;
-  --color-tertiary-fixed: #cde5ff;
-  --color-on-secondary-fixed-variant: #6e3900;
-  --color-on-background: #251913;
-  --color-on-primary-fixed: #341100;
-  --color-surface-container-low: #fff1eb;
-  --color-outline: #8c7164;
-  --color-on-secondary: #ffffff;
-  --color-on-error: #ffffff;
-  --color-on-secondary-fixed: #2f1500;
-  --color-surface: #fff8f6;
-  --color-background-warm: #fafaf9;
+  /* Primary */
+  --color-primary: #034AA6;
+  --color-primary-container: #3C74A6;
   --color-on-primary: #ffffff;
-  --color-text-muted: #78716c;
-  --color-inverse-primary: #ffb690;
-  --color-surface-bright: #fff8f6;
-  --color-surface-dim: #edd5cb;
-  --color-on-error-container: #93000a;
-  --color-secondary-container: #fe932c;
+  --color-on-primary-container: #ffffff;
 
+  /* Secondary / Accent */
+  --color-secondary: #F2AE2E;
+  --color-secondary-container: #F2B950;
+  --color-on-secondary: #000000;
+  
+  /* Success / Positive (Alerts only) */
+  --color-success: #9AD911;
+  --color-success-olive: #9AD911;
+
+  /* Error / Negative (Alerts only) */
+  --color-error: #F4674C;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-warning-coral: #F4674C;
+
+  /* Backgrounds & Surfaces */
+  --color-background: #EBF3FD;
+  --color-on-background: #1e293b;
+  
+  --color-nav-bg: #3C74A6;
+  --color-on-nav-bg: #EBF3FD;
+  
+  --color-surface: #ffffff;
+  --color-on-surface: #1e293b;
+  --color-on-surface-variant: #475569;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+
+  --color-outline: #94a3b8;
+  --color-outline-variant: #cbd5e1;
+
+  /* Spacing */
   --spacing-stack-gap: 1rem;
   --spacing-section-margin: 2rem;
   --spacing-gutter: 1rem;
   --spacing-container-padding: 1.25rem;
 
-  /* Custom text sizes from HTML */
+  /* Text Sizes */
   --text-headline-lg: 24px;
   --text-headline-lg--line-height: 32px;
   --text-label-xs: 12px;
@@ -80,7 +68,7 @@
 @layer base {
   body {
     min-height: max(884px, 100dvh);
-    background-color: var(--color-background-warm);
+    background-color: var(--color-background);
     color: var(--color-on-surface);
   }
 }

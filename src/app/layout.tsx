@@ -5,7 +5,7 @@ import { heIL } from "@clerk/localizations";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin", "hebrew"],
+  subsets: ["latin"],
   variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
 });
@@ -21,7 +21,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider localization={heIL}>
+    <ClerkProvider 
+      localization={heIL}
+      appearance={{
+        variables: {
+          colorPrimary: "#013E99",
+          colorBackground: "#ffffff",
+          colorText: "#1e293b",
+          colorInputBackground: "#f8fafc",
+          borderRadius: "16px",
+        },
+        elements: {
+          card: "shadow-2xl border border-[#e2e8f0]",
+          formButtonPrimary: "font-semibold shadow-md",
+        }
+      }}
+    >
       <html lang="he" dir="rtl">
         <head>
           <link

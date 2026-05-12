@@ -4,7 +4,11 @@ import Papa from "papaparse";
 export type ParsedTransaction = {
   date: string;
   amount: number;
+  currency?: string;
+  originalAmount?: number;
+  transactionType?: string;
   description: string;
+  category?: string;
   original_row_id: number;
 };
 
@@ -16,11 +20,34 @@ function isDateHeader(h: string) {
 }
 
 function isAmountHeader(h: string) {
-  return h.includes("סכום") || h.includes("חובה") || h.includes("זכות") || h.includes("חיוב");
+  const t = h.trim();
+  return t === "סכום חיוב" || h.includes("סכום חיוב") || (!h.includes("מקורי") && (h.includes("סכום") || h.includes("חובה") || h.includes("זכות") || h.includes("חיוב")));
 }
 
 function isDescHeader(h: string) {
-  return h.includes("תיאור") || h.includes("עסק") || h.includes("פעולה") || h.includes("פרטים");
+  const t = h.trim();
+  if (t.includes("סוג") || t.includes("סכום") || t.includes("מטבע") || t.includes("תאריך")) return false;
+  return t.includes("עסק") || t.includes("תיאור") || t.includes("פרטים") || t.includes("פעולה");
+}
+
+function isCategoryHeader(h: string) {
+  return h.includes("קטגוריה");
+}
+
+function isNotesHeader(h: string) {
+  return h.includes("הערות") || h.includes("פירוט");
+}
+
+function isTransactionTypeHeader(h: string) {
+  return h.includes("סוג עסקה");
+}
+
+function isCurrencyHeader(h: string) {
+  return h.includes("מטבע חיוב") || h.includes("מטבע עסקה");
+}
+
+function isOriginalAmountHeader(h: string) {
+  return h.includes("סכום עסקה מקורי");
 }
 
 function parseAmount(amountStr: string | number): number {
@@ -70,20 +97,48 @@ export async function parseBankFile(file: File): Promise<{
           return resolve({ bank: "כללי", transactions: [], error: "הקובץ ריק או פגום" });
         }
 
+        let maxMatches = 0;
         let headerRowIdx = -1;
-        let dateIdx = -1, amountIdx = -1, descIdx = -1;
+        let bestIndices = { dateIdx: -1, amountIdx: -1, descIdx: -1, categoryIdx: -1, notesIdx: -1, typeIdx: -1, currencyIdx: -1, originalAmountIdx: -1 };
 
-        // Search for headers in the first 20 rows
-        for (let i = 0; i < Math.min(rows.length, 20); i++) {
-          const rowStrings = rows[i].map((c: any) => String(c || ""));
+        // Pass 1: Scoring algorithm to find the true header row (ignores junk rows)
+        for (let i = 0; i < Math.min(rows.length, 30); i++) {
+          const rowStrings = rows[i].map((c: any) => String(c || "").trim());
           
-          dateIdx = rowStrings.findIndex(isDateHeader);
-          amountIdx = rowStrings.findIndex(isAmountHeader);
-          descIdx = rowStrings.findIndex(isDescHeader);
+          const dIdx = rowStrings.findIndex(isDateHeader);
+          const aIdx = rowStrings.findIndex(isAmountHeader);
+          
+          // Strict search for business name first
+          let bIdx = rowStrings.findIndex(h => {
+             const t = h.replace(/\s+/g, ' ');
+             return t === "שם בית העסק" || t === "שם העסק" || t === "בית עסק" || t === "שם בית עסק";
+          });
+          if (bIdx === -1) bIdx = rowStrings.findIndex(isDescHeader);
 
-          if (dateIdx !== -1 && amountIdx !== -1 && descIdx !== -1) {
+          const cIdx = rowStrings.findIndex(isCategoryHeader);
+          const tIdx = rowStrings.findIndex(isTransactionTypeHeader);
+          
+          let matches = 0;
+          if (dIdx !== -1) matches++;
+          if (aIdx !== -1) matches++;
+          if (bIdx !== -1) matches++;
+          if (cIdx !== -1) matches++;
+          if (tIdx !== -1) matches++;
+
+          // A real header row should have at least Date, Amount, and Desc.
+          if (matches > maxMatches && dIdx !== -1 && aIdx !== -1 && bIdx !== -1) {
+            maxMatches = matches;
             headerRowIdx = i;
-            break;
+            bestIndices = {
+              dateIdx: dIdx,
+              amountIdx: aIdx,
+              descIdx: bIdx,
+              categoryIdx: cIdx,
+              typeIdx: tIdx,
+              notesIdx: rowStrings.findIndex(isNotesHeader),
+              currencyIdx: rowStrings.findIndex(isCurrencyHeader),
+              originalAmountIdx: rowStrings.findIndex(isOriginalAmountHeader)
+            };
           }
         }
 
@@ -106,6 +161,7 @@ export async function parseBankFile(file: File): Promise<{
             bank = "DISCOUNT";
         }
 
+        const { dateIdx, amountIdx, descIdx, categoryIdx, notesIdx, typeIdx, currencyIdx, originalAmountIdx } = bestIndices;
         const transactions: ParsedTransaction[] = [];
 
         for (let i = headerRowIdx + 1; i < rows.length; i++) {
@@ -115,19 +171,35 @@ export async function parseBankFile(file: File): Promise<{
           const dateRaw = row[dateIdx];
           const amountRaw = row[amountIdx];
           const descRaw = row[descIdx];
+          const categoryRaw = categoryIdx !== -1 ? row[categoryIdx] : "";
+          const notesRaw = notesIdx !== -1 ? row[notesIdx] : "";
+          const typeRaw = typeIdx !== -1 ? row[typeIdx] : "";
+          const currencyRaw = currencyIdx !== -1 ? row[currencyIdx] : "";
+          const originalAmountRaw = originalAmountIdx !== -1 ? row[originalAmountIdx] : amountRaw;
 
           if (!dateRaw || !descRaw) continue;
 
           const amount = parseAmount(amountRaw);
+          const originalAmount = parseAmount(originalAmountRaw);
           const date = formatDate(dateRaw);
-          const description = String(descRaw).trim();
+          let description = String(descRaw).trim();
+          const category = String(categoryRaw).trim();
+          const notes = String(notesRaw).trim();
+
+          if (notes && notes.length > 0) {
+             description = `${description} - ${notes}`;
+          }
 
           // Collect valid entries. We allow 0 amount just in case, but usually we care about actual values.
           if (description && date) {
             transactions.push({
               date,
               amount,
+              currency: String(currencyRaw).trim(),
+              originalAmount,
+              transactionType: String(typeRaw).trim(),
               description,
+              category,
               original_row_id: i + 1,
             });
           }
