@@ -109,9 +109,9 @@ export async function parseBankFile(file: File): Promise<{
           const aIdx = rowStrings.findIndex(isAmountHeader);
           
           // Strict search for business name first
-          let bIdx = rowStrings.findIndex(h => {
+          let bIdx = rowStrings.findIndex((h: string) => {
              const t = h.replace(/\s+/g, ' ');
-             return t === "שם בית העסק" || t === "שם העסק" || t === "בית עסק" || t === "שם בית עסק";
+             return t === "שם בית העסק" || t === "שם העסק" || t === "בית עסק" || t === "שם כרטיס";
           });
           if (bIdx === -1) bIdx = rowStrings.findIndex(isDescHeader);
 
