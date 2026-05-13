@@ -4,7 +4,7 @@ export type CategoryMeta = {
 };
 
 // Colors requested by user:
-// #11EEF2 (Cyan)
+// #58F3F6 (Cyan)
 // #F2CF11 (Yellow)
 // #F211AF (Pink)
 // #375657 (Dark Teal)
@@ -12,14 +12,14 @@ export type CategoryMeta = {
 
 // Additional shades for variety in charts
 const ALL_CHART_COLORS = [
-  "#F211AF", "#F2CF11", "#11EEF2", "#5F5DE2", "#372265",
+  "#F211AF", "#F2CF11", "#58F3F6", "#5F5DE2", "#372265",
   "#CDF22A", "#007176", "#DB3800"
 ];
 
 const CATEGORY_MAP: Record<string, CategoryMeta> = {
   "רכב": { color: "#F211AF", icon: "directions_car" },
   "דלק": { color: "#F2CF11", icon: "local_gas_station" },
-  "תחבורה": { color: "#11EEF2", icon: "directions_bus" },
+  "תחבורה": { color: "#58F3F6", icon: "directions_bus" },
   "מזון": { color: "#5F5DE2", icon: "shopping_cart" },
   "סופר": { color: "#372265", icon: "shopping_basket" },
   "מסעדות": { color: "#CDF22A", icon: "restaurant" },
@@ -27,7 +27,7 @@ const CATEGORY_MAP: Record<string, CategoryMeta> = {
   "פנאי": { color: "#DB3800", icon: "attractions" },
   "תקשורת": { color: "#F211AF", icon: "wifi" },
   "חשבונות": { color: "#F2CF11", icon: "receipt_long" },
-  "חשמל": { color: "#11EEF2", icon: "electric_bolt" },
+  "חשמל": { color: "#58F3F6", icon: "electric_bolt" },
   "מים": { color: "#5F5DE2", icon: "water_drop" },
   "ארנונה": { color: "#372265", icon: "account_balance" },
   "בריאות": { color: "#CDF22A", icon: "favorite" },

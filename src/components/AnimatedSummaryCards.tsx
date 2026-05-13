@@ -64,7 +64,7 @@ export default function AnimatedSummaryCards() {
       </div>
       <div className="flex-1 bg-white rounded-3xl p-3 md:p-4 shadow-sm border border-[var(--color-outline-variant)] flex flex-col items-center justify-center text-center">
         <p className="text-xs md:text-sm font-black text-[#375657] mb-1">מאזן (חודש נוכחי)</p>
-        <AnimatedNumber value={balance} colorClass="text-[#11EEF2]" />
+        <AnimatedNumber value={balance} colorClass="text-[#58F3F6]" />
       </div>
     </div>
   );

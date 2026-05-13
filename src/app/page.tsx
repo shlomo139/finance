@@ -41,14 +41,14 @@ export default function LandingPage() {
           <div className="flex gap-4">
             <Show when="signed-out">
               <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-                <button className="bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
+                <button className="bg-[#58F3F6] hover:bg-[#58F3F6]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
                   כניסה לחשבון
                 </button>
               </SignInButton>
             </Show>
 
           <Show when="signed-in">
-            <Link href="/dashboard" className="bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
+            <Link href="/dashboard" className="bg-[#58F3F6] hover:bg-[#58F3F6]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
               המשך לאפליקציה
             </Link>
           </Show>

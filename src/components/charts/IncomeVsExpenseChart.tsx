@@ -106,7 +106,7 @@ export default function IncomeVsExpenseChart() {
               <Legend content={renderLegend} />
               <Bar dataKey="expense" name="הוצאות" fill="#DB3800" radius={[4, 4, 0, 0]} maxBarSize={30} />
               <Bar dataKey="income" name="הכנסות" fill="#CDF22A" radius={[4, 4, 0, 0]} maxBarSize={30} />
-              <Bar dataKey="balance" name="מאזן" fill="#11EEF2" radius={[4, 4, 0, 0]} maxBarSize={30} />
+              <Bar dataKey="balance" name="מאזן" fill="#58F3F6" radius={[4, 4, 0, 0]} maxBarSize={30} />
             </BarChart>
           </ResponsiveContainer>
         </div>

@@ -191,13 +191,13 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     <div className="flex flex-col gap-3 w-full">
                       <button 
                         onClick={handleDashboardClick}
-                        className="w-full py-3 px-4 rounded-2xl bg-[#11EEF2] text-[#375657] font-bold shadow-md hover:bg-[#11EEF2]/80 active:scale-95 transition-all text-center"
+                        className="w-full py-3 px-4 rounded-2xl bg-[#58F3F6] text-[#375657] font-bold shadow-md hover:bg-[#58F3F6]/80 active:scale-95 transition-all text-center"
                       >
                         ללוח הבקרה
                       </button>
                       <button 
                         onClick={() => setSuccessData(null)}
-                        className="w-full py-3 px-4 rounded-2xl border-2 border-[#11EEF2] text-[#375657] font-bold shadow-sm hover:bg-[#11EEF2]/10 active:scale-95 transition-all text-center"
+                        className="w-full py-3 px-4 rounded-2xl border-2 border-[#58F3F6] text-[#375657] font-bold shadow-sm hover:bg-[#58F3F6]/10 active:scale-95 transition-all text-center"
                       >
                         להוסיף קובץ נוסף
                       </button>
@@ -208,7 +208,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     {...getRootProps()}
                     className={`
                       relative overflow-hidden rounded-3xl border-2 border-dashed p-8 text-center cursor-pointer transition-all duration-200
-                      ${isDragActive ? 'border-[#11EEF2] bg-[#11EEF2]/5' : 'border-[#375657]/30 bg-black/5 hover:bg-black/10'}
+                      ${isDragActive ? 'border-[#58F3F6] bg-[#58F3F6]/5' : 'border-[#375657]/30 bg-black/5 hover:bg-black/10'}
                       ${(isParsing || isSaving) ? 'opacity-50 pointer-events-none' : ''}
                     `}
                   >
@@ -216,7 +216,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     
                     {(isParsing || isSaving) ? (
                       <div className="flex flex-col items-center justify-center space-y-4 py-8">
-                        <div className="w-12 h-12 border-4 border-[#11EEF2]/30 border-t-[#11EEF2] rounded-full animate-spin"></div>
+                        <div className="w-12 h-12 border-4 border-[#58F3F6]/30 border-t-[#58F3F6] rounded-full animate-spin"></div>
                         <p className="text-[#375657] font-bold">
                           {isParsing ? 'מנתח את הקובץ במכשיר שלך...' : 'שומר נתונים בענן...'}
                         </p>
@@ -232,7 +232,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                         <p className="text-[14px] text-gray-500 font-medium">
                           המערכת מסננת פרטים אישיים לשמירה על פרטיותך.
                         </p>
-                        <button className="mt-4 py-2.5 px-6 rounded-2xl bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-[14px] font-bold shadow-sm hover:scale-105 active:scale-95 transition-all">
+                        <button className="mt-4 py-2.5 px-6 rounded-2xl bg-[#58F3F6] hover:bg-[#58F3F6]/80 text-[#375657] text-[14px] font-bold shadow-sm hover:scale-105 active:scale-95 transition-all">
                           או בחרו קובץ מתוך המכשיר
                         </button>
                       </div>

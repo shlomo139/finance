@@ -20,7 +20,7 @@ export default function BottomNavBar({ onOpenUpload }: { onOpenUpload?: () => vo
   };
 
   return (
-    <nav className="fixed bottom-0 w-full z-40 bg-[#11EEF2] border-t border-black/10 pb-safe rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+    <nav className="fixed bottom-0 w-full z-40 bg-[#58F3F6] border-t border-black/10 pb-safe rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
       <div className="flex justify-between items-center h-20 px-6 max-w-[768px] mx-auto relative">
         
         <Link href="/dashboard" className={getTabClass("/dashboard")}>
@@ -37,7 +37,7 @@ export default function BottomNavBar({ onOpenUpload }: { onOpenUpload?: () => vo
         <div className="relative -top-8">
           <button 
             onClick={onOpenUpload}
-            className="w-14 h-14 bg-[#375657] text-[#CFE8E8] rounded-full shadow-lg flex items-center justify-center active:scale-90 hover:scale-110 transition-all duration-300 border-4 border-[#11EEF2] cursor-pointer"
+            className="w-14 h-14 bg-[#375657] text-[#CFE8E8] rounded-full shadow-lg flex items-center justify-center active:scale-90 hover:scale-110 transition-all duration-300 border-4 border-[#58F3F6] cursor-pointer"
           >
             <span className="material-symbols-outlined text-3xl">add</span>
           </button>

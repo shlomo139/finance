@@ -2,8 +2,8 @@
 
 @theme {
   /* Primary */
-  --color-primary: #11EEF2;
-  --color-primary-container: #11EEF2;
+  --color-primary: #58F3F6;
+  --color-primary-container: #58F3F6;
   --color-on-primary: #375657;
   --color-on-primary-container: #375657;
 
@@ -26,7 +26,7 @@
   --color-background: #CFE8E8;
   --color-on-background: #375657;
   
-  --color-nav-bg: #11EEF2;
+  --color-nav-bg: #58F3F6;
   --color-on-nav-bg: #375657;
   
   --color-surface: #ffffff;
@@ -43,8 +43,8 @@
   --color-outline-variant: #cbd5e1;
 
   /* New semantic tokens */
-  --color-button: #11EEF2;
-  --color-button-hover: #11EEF2;
+  --color-button: #58F3F6;
+  --color-button-hover: #58F3F6;
   --color-heading: #375657;
   --color-table-text: #375657;
   --color-table-icon: #375657;

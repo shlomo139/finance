@@ -151,7 +151,7 @@ export default function CategoryDonutChart() {
             <div className="p-4 border-t border-[var(--color-outline-variant)] bg-black/5 shrink-0">
               <button 
                 onClick={() => setIsAllCategoriesOpen(false)}
-                className="w-full bg-[#11EEF2] text-[#375657] rounded-xl py-3 font-bold active:scale-95 transition-all"
+                className="w-full bg-[#58F3F6] text-[#375657] rounded-xl py-3 font-bold active:scale-95 transition-all"
               >
                 סגור
               </button>

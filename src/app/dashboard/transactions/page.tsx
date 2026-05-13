@@ -220,7 +220,7 @@ export default function TransactionsPage() {
             <div className="p-4 border-t border-[var(--color-outline-variant)] bg-black/5">
               <button 
                 onClick={() => setIsSortOpen(false)}
-                className="w-full bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] rounded-2xl py-3 font-bold active:scale-95 transition-all"
+                className="w-full bg-[#58F3F6] hover:bg-[#58F3F6]/80 text-[#375657] rounded-2xl py-3 font-bold active:scale-95 transition-all"
               >
                 החל מיון
               </button>
