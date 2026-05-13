@@ -78,8 +78,8 @@ export default function IncomeVsExpenseChart() {
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-[var(--color-outline-variant)] relative overflow-hidden">
       
-      <div className="bg-[#EBF3FD] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
-        <h2 className="text-lg font-black text-[#3C74A6] m-0 leading-none">הכנסות מול הוצאות</h2>
+      <div className="bg-[#375657] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
+        <h2 className="text-lg font-black text-[#CFE8E8] m-0 leading-none">הכנסות מול הוצאות</h2>
         <div className="z-10 flex gap-2">
           <ChartFilter 
             selectedMonth={month} setSelectedMonth={setMonth}
@@ -104,9 +104,9 @@ export default function IncomeVsExpenseChart() {
               <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(v) => `₪${v}`} width={60}/>
               <Tooltip cursor={{fill: '#f1f5f9'}} formatter={(v) => `₪${Number(v).toFixed(0)}`} labelStyle={{color: '#1e293b'}}/>
               <Legend content={renderLegend} />
-              <Bar dataKey="expense" name="הוצאות" fill="#E63946" radius={[4, 4, 0, 0]} maxBarSize={30} />
-              <Bar dataKey="income" name="הכנסות" fill="#9AD911" radius={[4, 4, 0, 0]} maxBarSize={30} />
-              <Bar dataKey="balance" name="מאזן" fill="#F2AE2E" radius={[4, 4, 0, 0]} maxBarSize={30} />
+              <Bar dataKey="expense" name="הוצאות" fill="#DB3800" radius={[4, 4, 0, 0]} maxBarSize={30} />
+              <Bar dataKey="income" name="הכנסות" fill="#CDF22A" radius={[4, 4, 0, 0]} maxBarSize={30} />
+              <Bar dataKey="balance" name="מאזן" fill="#11EEF2" radius={[4, 4, 0, 0]} maxBarSize={30} />
             </BarChart>
           </ResponsiveContainer>
         </div>

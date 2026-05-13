@@ -105,7 +105,12 @@ export async function parseBankFile(file: File): Promise<{
         for (let i = 0; i < Math.min(rows.length, 30); i++) {
           const rowStrings = rows[i].map((c: any) => String(c || "").trim());
           
-          const dIdx = rowStrings.findIndex(isDateHeader);
+          // Strict search for date to prioritize transaction date over billing date
+          let dIdx = rowStrings.findIndex((h: string) => {
+             const t = h.replace(/\s+/g, ' ');
+             return t === "תאריך עסקה" || t === "תאריך העסקה";
+          });
+          if (dIdx === -1) dIdx = rowStrings.findIndex(isDateHeader);
           const aIdx = rowStrings.findIndex(isAmountHeader);
           
           // Strict search for business name first

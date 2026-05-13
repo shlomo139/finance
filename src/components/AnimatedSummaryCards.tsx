@@ -55,16 +55,16 @@ export default function AnimatedSummaryCards() {
   return (
     <div className="flex gap-2 w-full mb-6">
       <div className="flex-1 bg-white rounded-3xl p-3 md:p-4 shadow-sm border border-[var(--color-outline-variant)] flex flex-col items-center justify-center text-center">
-        <p className="text-xs md:text-sm font-black text-[#3C74A6] mb-1">הכנסות (חודש נוכחי)</p>
-        <AnimatedNumber value={income} colorClass="text-[#7AAB10]" />
+        <p className="text-xs md:text-sm font-black text-[#375657] mb-1">הכנסות (חודש נוכחי)</p>
+        <AnimatedNumber value={income} colorClass="text-[#CDF22A]" />
       </div>
       <div className="flex-1 bg-white rounded-3xl p-3 md:p-4 shadow-sm border border-[var(--color-outline-variant)] flex flex-col items-center justify-center text-center">
-        <p className="text-xs md:text-sm font-black text-[#3C74A6] mb-1">הוצאות (חודש נוכחי)</p>
-        <AnimatedNumber value={expense} colorClass="text-[#E63946]" />
+        <p className="text-xs md:text-sm font-black text-[#375657] mb-1">הוצאות (חודש נוכחי)</p>
+        <AnimatedNumber value={expense} colorClass="text-[#DB3800]" />
       </div>
       <div className="flex-1 bg-white rounded-3xl p-3 md:p-4 shadow-sm border border-[var(--color-outline-variant)] flex flex-col items-center justify-center text-center">
-        <p className="text-xs md:text-sm font-black text-[#3C74A6] mb-1">מאזן (חודש נוכחי)</p>
-        <AnimatedNumber value={balance} colorClass="text-[#F2AE2E]" />
+        <p className="text-xs md:text-sm font-black text-[#375657] mb-1">מאזן (חודש נוכחי)</p>
+        <AnimatedNumber value={balance} colorClass="text-[#11EEF2]" />
       </div>
     </div>
   );

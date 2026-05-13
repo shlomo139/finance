@@ -69,12 +69,12 @@ export default function CategoryDonutChart() {
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-[var(--color-outline-variant)] relative overflow-hidden">
       
-      <div className="bg-[#EBF3FD] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
-        <h2 className="text-lg font-black text-[#3C74A6] m-0 leading-none">הוצאות לפי קטגוריה</h2>
+      <div className="bg-[#375657] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
+        <h2 className="text-lg font-black text-[#CFE8E8] m-0 leading-none">הוצאות לפי קטגוריה</h2>
         <div className="flex items-center gap-2 z-10">
           <button 
             onClick={() => setIsAllCategoriesOpen(true)}
-            className="bg-[#034AA6]/10 text-[#034AA6] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#034AA6]/20 transition-colors"
+            className="bg-[#CFE8E8]/10 text-[#CFE8E8] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#CFE8E8]/20 transition-colors"
           >
             לכל הקטגוריות
           </button>
@@ -123,7 +123,7 @@ export default function CategoryDonutChart() {
       {isAllCategoriesOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200" dir="rtl">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200 flex flex-col max-h-[80vh]">
-            <div className="p-4 border-b border-[var(--color-outline-variant)] flex justify-between items-center bg-[#3C74A6] text-white shrink-0">
+            <div className="p-4 border-b border-[var(--color-outline-variant)] flex justify-between items-center bg-[#375657] text-[#CFE8E8] shrink-0">
               <h3 className="font-bold text-lg">כל הקטגוריות</h3>
               <button onClick={() => setIsAllCategoriesOpen(false)} className="material-symbols-outlined text-white/80 hover:text-white">close</button>
             </div>
@@ -151,7 +151,7 @@ export default function CategoryDonutChart() {
             <div className="p-4 border-t border-[var(--color-outline-variant)] bg-black/5 shrink-0">
               <button 
                 onClick={() => setIsAllCategoriesOpen(false)}
-                className="w-full bg-[#F2AE2E] text-white rounded-xl py-3 font-bold active:scale-95 transition-all"
+                className="w-full bg-[#11EEF2] text-[#375657] rounded-xl py-3 font-bold active:scale-95 transition-all"
               >
                 סגור
               </button>

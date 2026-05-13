@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import TopAppBar from "@/components/TopAppBar";
 import BottomNavBar from "@/components/BottomNavBar";
+import TopAppBar from "@/components/TopAppBar";
 import UploadModal from "@/components/UploadModal";
 
 export default function InsightsPage() {
@@ -11,7 +11,6 @@ export default function InsightsPage() {
   return (
     <>
       <TopAppBar />
-      
       <main className="max-w-[768px] mx-auto min-h-[calc(100vh-144px)] flex flex-col items-center justify-center px-[1.25rem] pb-28 pt-6 text-center">
         <span className="material-symbols-outlined text-6xl text-[var(--color-primary)] mb-4">insights</span>
         <h1 className="text-3xl font-black text-[var(--color-on-surface)] mb-2">תובנות חכמות</h1>

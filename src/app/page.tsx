@@ -34,21 +34,21 @@ export default function LandingPage() {
   return (
     <div className="min-h-[100dvh] bg-[var(--color-background)] text-[var(--color-on-background)] overflow-hidden relative" dir="rtl">
       {/* Top Bar - Fixed */}
-      <header className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 md:p-6 w-full border-b-4 border-[#F2B950] bg-transparent">
-        <div className="text-2xl font-black text-[#034AA6] max-w-4xl mx-auto w-full flex justify-between items-center">
+      <header className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 md:p-6 w-full bg-transparent">
+        <div className="text-2xl font-black text-[#375657] max-w-4xl mx-auto w-full flex justify-between items-center">
           <div>FinanceApp</div>
           
           <div className="flex gap-4">
             <Show when="signed-out">
               <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-                <button className="bg-[#034AA6] hover:bg-[#3C74A6] text-white text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
+                <button className="bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
                   כניסה לחשבון
                 </button>
               </SignInButton>
             </Show>
 
           <Show when="signed-in">
-            <Link href="/dashboard" className="bg-[#034AA6] hover:bg-[#3C74A6] text-white text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
+            <Link href="/dashboard" className="bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-sm font-bold py-2 px-5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-95">
               המשך לאפליקציה
             </Link>
           </Show>
@@ -70,7 +70,7 @@ export default function LandingPage() {
           >
             <LottieAnimation src={slides[currentSlide].animation} className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] mx-auto mb-2" />
             
-            <h1 className="text-[36px] md:text-[48px] font-black mb-4 text-[#3C74A6] leading-tight">
+            <h1 className="text-[36px] md:text-[48px] font-black mb-4 text-[#375657] leading-tight">
               {slides[currentSlide].title}
             </h1>
             
@@ -87,7 +87,7 @@ export default function LandingPage() {
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? "w-8 bg-[#F2AE2E]" : "w-2 bg-[#F2AE2E]/30"
+                idx === currentSlide ? "w-8 bg-[#375657]" : "w-2 bg-[#375657]/30"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />

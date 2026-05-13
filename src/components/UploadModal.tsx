@@ -125,7 +125,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="text-xl font-black text-[#3C74A6] transition-all"
+                  className="text-xl font-black text-[#375657] transition-all"
                 >
                   {transitionText}
                 </motion.h3>
@@ -133,10 +133,10 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
             ) : (
               <>
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-[20px] font-black text-[#3C74A6]">העלאת נתונים</h2>
+                  <h2 className="text-[20px] font-black text-[#375657]">העלאת נתונים</h2>
                   <button 
                     onClick={onClose}
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-black/5 text-[#3C74A6] hover:bg-black/10 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-black/5 text-[#375657] hover:bg-black/10 transition-colors"
                   >
                     <span className="material-symbols-outlined text-[20px]">close</span>
                   </button>
@@ -156,7 +156,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", bounce: 0.5 }}
-                      className="w-20 h-20 rounded-full bg-[#9AD911] text-white flex items-center justify-center shadow-lg mb-6"
+                      className="w-20 h-20 rounded-full bg-[#CDF22A] text-white flex items-center justify-center shadow-lg mb-6"
                     >
                       <motion.span 
                         initial={{ opacity: 0 }}
@@ -171,17 +171,17 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     {/* File box with remove option */}
                     <div className="flex items-center justify-between w-full max-w-sm bg-black/5 p-4 rounded-xl mb-6 shadow-sm border border-black/10">
                       <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-[#034AA6]">description</span>
-                        <span className="text-[14px] font-bold text-[#3C74A6] truncate max-w-[200px]" dir="ltr">
+                        <span className="material-symbols-outlined text-[#375657]">description</span>
+                        <span className="text-[14px] font-bold text-[#375657] truncate max-w-[200px]" dir="ltr">
                           {successData.fileName}
                         </span>
                       </div>
-                      <button onClick={() => setSuccessData(null)} className="text-[#3C74A6] hover:text-red-500 transition-colors">
+                      <button onClick={() => setSuccessData(null)} className="text-[#375657] hover:text-red-500 transition-colors">
                         <span className="material-symbols-outlined text-[20px]">close</span>
                       </button>
                     </div>
 
-                    <h3 className="text-[20px] font-black text-[#3C74A6] mb-2">
+                    <h3 className="text-[20px] font-black text-[#375657] mb-2">
                       הקובץ נותח ונשמר בהצלחה!
                     </h3>
                     <p className="text-[16px] text-gray-500 font-medium mb-8">
@@ -191,13 +191,13 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     <div className="flex flex-col gap-3 w-full">
                       <button 
                         onClick={handleDashboardClick}
-                        className="w-full py-3 px-4 rounded-2xl bg-[#034AA6] text-white font-bold shadow-md hover:bg-[#3C74A6] active:scale-95 transition-all text-center"
+                        className="w-full py-3 px-4 rounded-2xl bg-[#11EEF2] text-[#375657] font-bold shadow-md hover:bg-[#11EEF2]/80 active:scale-95 transition-all text-center"
                       >
                         ללוח הבקרה
                       </button>
                       <button 
                         onClick={() => setSuccessData(null)}
-                        className="w-full py-3 px-4 rounded-2xl border-2 border-[#034AA6] text-[#034AA6] font-bold shadow-sm hover:bg-black/5 active:scale-95 transition-all text-center"
+                        className="w-full py-3 px-4 rounded-2xl border-2 border-[#11EEF2] text-[#375657] font-bold shadow-sm hover:bg-[#11EEF2]/10 active:scale-95 transition-all text-center"
                       >
                         להוסיף קובץ נוסף
                       </button>
@@ -208,7 +208,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     {...getRootProps()}
                     className={`
                       relative overflow-hidden rounded-3xl border-2 border-dashed p-8 text-center cursor-pointer transition-all duration-200
-                      ${isDragActive ? 'border-[#034AA6] bg-[#034AA6]/5' : 'border-[#3C74A6]/30 bg-black/5 hover:bg-black/10'}
+                      ${isDragActive ? 'border-[#11EEF2] bg-[#11EEF2]/5' : 'border-[#375657]/30 bg-black/5 hover:bg-black/10'}
                       ${(isParsing || isSaving) ? 'opacity-50 pointer-events-none' : ''}
                     `}
                   >
@@ -216,23 +216,23 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
                     
                     {(isParsing || isSaving) ? (
                       <div className="flex flex-col items-center justify-center space-y-4 py-8">
-                        <div className="w-12 h-12 border-4 border-[#034AA6]/30 border-t-[#034AA6] rounded-full animate-spin"></div>
-                        <p className="text-[#034AA6] font-bold">
+                        <div className="w-12 h-12 border-4 border-[#11EEF2]/30 border-t-[#11EEF2] rounded-full animate-spin"></div>
+                        <p className="text-[#375657] font-bold">
                           {isParsing ? 'מנתח את הקובץ במכשיר שלך...' : 'שומר נתונים בענן...'}
                         </p>
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center space-y-4">
-                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#034AA6] mb-2 shadow-sm border border-black/5">
+                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#375657] mb-2 shadow-sm border border-black/5">
                           <span className="material-symbols-outlined text-3xl">cloud_upload</span>
                         </div>
-                        <p className="text-[16px] font-black text-[#3C74A6] leading-relaxed">
+                        <p className="text-[16px] font-black text-[#375657] leading-relaxed">
                           גרור לכאן קבצי אקסל או CSV של מקס, כאל או דיסקונט. 
                         </p>
                         <p className="text-[14px] text-gray-500 font-medium">
                           המערכת מסננת פרטים אישיים לשמירה על פרטיותך.
                         </p>
-                        <button className="mt-4 py-2.5 px-6 rounded-2xl bg-[#034AA6] hover:bg-[#3C74A6] text-white text-[14px] font-bold shadow-sm hover:scale-105 active:scale-95 transition-all">
+                        <button className="mt-4 py-2.5 px-6 rounded-2xl bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] text-[14px] font-bold shadow-sm hover:scale-105 active:scale-95 transition-all">
                           או בחרו קובץ מתוך המכשיר
                         </button>
                       </div>

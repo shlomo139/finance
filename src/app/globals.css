@@ -2,15 +2,15 @@
 
 @theme {
   /* Primary */
-  --color-primary: #034AA6;
-  --color-primary-container: #3C74A6;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #ffffff;
+  --color-primary: #11EEF2;
+  --color-primary-container: #11EEF2;
+  --color-on-primary: #375657;
+  --color-on-primary-container: #375657;
 
   /* Secondary / Accent */
-  --color-secondary: #F2AE2E;
-  --color-secondary-container: #F2B950;
-  --color-on-secondary: #000000;
+  --color-secondary: #F211AF;
+  --color-secondary-container: #F211AF;
+  --color-on-secondary: #ffffff;
   
   /* Success / Positive (Alerts only) */
   --color-success: #9AD911;
@@ -23,15 +23,15 @@
   --color-warning-coral: #F4674C;
 
   /* Backgrounds & Surfaces */
-  --color-background: #EBF3FD;
-  --color-on-background: #1e293b;
+  --color-background: #CFE8E8;
+  --color-on-background: #375657;
   
-  --color-nav-bg: #3C74A6;
-  --color-on-nav-bg: #EBF3FD;
+  --color-nav-bg: #11EEF2;
+  --color-on-nav-bg: #375657;
   
   --color-surface: #ffffff;
-  --color-on-surface: #1e293b;
-  --color-on-surface-variant: #475569;
+  --color-on-surface: #375657;
+  --color-on-surface-variant: #375657;
   
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #f8fafc;
@@ -41,6 +41,13 @@
 
   --color-outline: #94a3b8;
   --color-outline-variant: #cbd5e1;
+
+  /* New semantic tokens */
+  --color-button: #11EEF2;
+  --color-button-hover: #11EEF2;
+  --color-heading: #375657;
+  --color-table-text: #375657;
+  --color-table-icon: #375657;
 
   /* Spacing */
   --spacing-stack-gap: 1rem;

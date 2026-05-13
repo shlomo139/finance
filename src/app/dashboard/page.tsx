@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TopAppBar from "@/components/TopAppBar";
 import BottomNavBar from "@/components/BottomNavBar";
+import TopAppBar from "@/components/TopAppBar";
 import UploadModal from "@/components/UploadModal";
 import LottieAnimation from "@/components/LottieAnimation";
 import { hasTransactionsAction } from "@/app/actions/data";
@@ -23,7 +23,6 @@ export default function DashboardPage() {
   return (
     <>
       <TopAppBar />
-      
       <main className="max-w-[768px] mx-auto min-h-[calc(100vh-144px)] flex flex-col px-[1.25rem] pb-28 pt-6">
         
         {hasData === null ? (
@@ -51,7 +50,7 @@ export default function DashboardPage() {
         ) : (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 w-full pb-8">
             <div className="flex flex-col items-center justify-center text-center mb-6">
-              <h1 className="text-3xl font-black text-[#3C74A6]">דשבורד ראשי</h1>
+              <h1 className="text-3xl font-black text-[#375657]">דשבורד ראשי</h1>
               <p className="text-lg font-bold text-[var(--color-on-surface-variant)] mt-1">
                 סקירה כללית של המצב הפיננסי שלך
               </p>

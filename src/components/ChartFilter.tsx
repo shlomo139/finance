@@ -94,7 +94,7 @@ export default function ChartFilter({
         <div className="flex gap-2 mb-4 w-full justify-end">
           <button 
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-1 bg-[#034AA6] text-white hover:bg-[#3C74A6] px-5 py-2.5 rounded-2xl text-sm font-bold active:scale-95 transition-all shadow-sm"
+            className="flex items-center gap-1 bg-[#11EEF2] text-[#375657] hover:bg-[#11EEF2]/80 px-5 py-2.5 rounded-2xl text-sm font-bold active:scale-95 transition-all shadow-sm"
           >
             <span className="material-symbols-outlined text-[18px]">filter_list</span>
             סינון
@@ -102,7 +102,7 @@ export default function ChartFilter({
           {onSortClick && (
             <button 
               onClick={onSortClick}
-              className="flex items-center gap-1 bg-[#034AA6] text-white hover:bg-[#3C74A6] px-5 py-2.5 rounded-2xl text-sm font-bold active:scale-95 transition-all shadow-sm"
+              className="flex items-center gap-1 bg-[#11EEF2] text-[#375657] hover:bg-[#11EEF2]/80 px-5 py-2.5 rounded-2xl text-sm font-bold active:scale-95 transition-all shadow-sm"
             >
               <span className="material-symbols-outlined text-[18px]">sort</span>
               מיון
@@ -112,7 +112,7 @@ export default function ChartFilter({
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className={`${inline ? '' : 'absolute top-4 left-4 '}flex items-center justify-center w-9 h-9 bg-[#034AA6] hover:bg-[#3C74A6] text-white rounded-full active:scale-95 transition-all shadow-sm z-10 hover:scale-110`}
+          className={`${inline ? '' : 'absolute top-4 left-4 '}flex items-center justify-center w-9 h-9 bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] rounded-full active:scale-95 transition-all shadow-sm z-10 hover:scale-110`}
         >
           <span className="material-symbols-outlined text-[20px]">filter_list</span>
         </button>
@@ -122,7 +122,7 @@ export default function ChartFilter({
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200" dir="rtl">
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200">
-            <div className="p-4 border-b border-black/10 flex justify-between items-center bg-[#EBF3FD] text-[#3C74A6]">
+            <div className="p-4 border-b border-black/10 flex justify-between items-center bg-[#375657] text-[#CFE8E8]">
               <h3 className="font-black text-lg">סינון נתונים</h3>
               <button onClick={() => setIsOpen(false)} className="material-symbols-outlined hover:text-black">close</button>
             </div>
@@ -134,7 +134,7 @@ export default function ChartFilter({
                   <select 
                     value={localMonth}
                     onChange={(e) => setLocalMonth(e.target.value)}
-                    className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F2AE2E] transition-colors"
+                    className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#11EEF2] transition-colors"
                   >
                     <option value="">כל החודשים</option>
                     {months.map(m => (
@@ -152,7 +152,7 @@ export default function ChartFilter({
                       <label key={m} className="flex items-center gap-3 cursor-pointer">
                         <input 
                           type="checkbox" 
-                          className="w-4 h-4 accent-[#034AA6]"
+                          className="w-4 h-4 accent-[#11EEF2]"
                           checked={localMonths.includes(m)}
                           onChange={(e) => {
                             if (e.target.checked) setLocalMonths([...localMonths, m]);
@@ -172,7 +172,7 @@ export default function ChartFilter({
                   <select 
                     value={localCategory}
                     onChange={(e) => setLocalCategory(e.target.value)}
-                    className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F2AE2E] transition-colors"
+                    className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#11EEF2] transition-colors"
                   >
                     <option value="">כל הקטגוריות</option>
                     {categories.map(c => (
@@ -190,7 +190,7 @@ export default function ChartFilter({
                       <label key={c} className="flex items-center gap-3 cursor-pointer">
                         <input 
                           type="checkbox" 
-                          className="w-4 h-4 accent-[#034AA6]"
+                          className="w-4 h-4 accent-[#11EEF2]"
                           checked={localCategories.includes(c)}
                           onChange={(e) => {
                             if (e.target.checked) setLocalCategories([...localCategories, c]);
@@ -208,7 +208,7 @@ export default function ChartFilter({
             <div className="p-4 border-t border-[var(--color-outline-variant)] flex gap-3 bg-black/5">
               <button 
                 onClick={handleApply}
-                className="flex-1 bg-[#034AA6] hover:bg-[#3C74A6] text-white rounded-2xl py-3 font-bold active:scale-95 transition-all"
+                className="flex-1 bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] rounded-2xl py-3 font-bold active:scale-95 transition-all"
               >
                 החל סינון
               </button>

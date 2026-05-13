@@ -13,7 +13,7 @@ export default function MonthOverMonthChart() {
 
   useEffect(() => {
     setLoading(true);
-    getTransactionsAction(undefined, category).then(txs => {
+    getTransactionsAction("", category).then(txs => {
       const expenses = txs.filter(t => t.type === "expense");
       
       const grouped = new Map();
@@ -41,8 +41,8 @@ export default function MonthOverMonthChart() {
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-[var(--color-outline-variant)] relative overflow-hidden">
       
-      <div className="bg-[#EBF3FD] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
-        <h2 className="text-lg font-black text-[#3C74A6] m-0 leading-none">השוואת הוצאות לאורך זמן</h2>
+      <div className="bg-[#375657] w-full px-4 py-3 flex justify-between items-center relative border-b border-[var(--color-outline-variant)]">
+        <h2 className="text-lg font-black text-[#CFE8E8] m-0 leading-none">השוואת הוצאות לאורך זמן</h2>
         <div className="z-10 flex gap-2">
           <ChartFilter 
             selectedMonth={""} setSelectedMonth={() => {}}
@@ -69,7 +69,7 @@ export default function MonthOverMonthChart() {
               <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
               <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(v) => `₪${v}`} width={60}/>
               <Tooltip cursor={{fill: '#f1f5f9'}} formatter={(v) => `₪${Number(v).toFixed(0)}`} labelStyle={{color: '#1e293b'}}/>
-              <Line type="monotone" dataKey="amount" stroke="var(--color-primary)" strokeWidth={3} dot={{r: 4, fill: 'var(--color-primary)'}} activeDot={{r: 6}} />
+              <Line type="monotone" dataKey="amount" stroke="#DB3800" strokeWidth={3} dot={{r: 4, fill: '#DB3800'}} activeDot={{r: 6}} />
             </LineChart>
           </ResponsiveContainer>
         </div>

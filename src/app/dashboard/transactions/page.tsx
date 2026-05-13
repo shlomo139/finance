@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import TopAppBar from "@/components/TopAppBar";
 import BottomNavBar from "@/components/BottomNavBar";
+import TopAppBar from "@/components/TopAppBar";
 import UploadModal from "@/components/UploadModal";
 import { getTransactionsAction } from "@/app/actions/data";
 import ChartFilter from "@/components/ChartFilter";
@@ -60,14 +60,7 @@ export default function TransactionsPage() {
   return (
     <>
       <TopAppBar />
-      
       <main className="max-w-[768px] mx-auto min-h-[calc(100vh-144px)] flex flex-col px-[1.25rem] pb-28 pt-6">
-        <div className="flex flex-col items-center justify-center text-center mb-6">
-          <h1 className="text-3xl font-black text-[#3C74A6]">היסטוריית תנועות</h1>
-          <p className="text-lg font-bold text-[var(--color-on-surface-variant)] mt-1">
-            מעקב אחר כלל ההוצאות וההכנסות במקום אחד
-          </p>
-        </div>
         
         <ChartFilter 
           selectedMonth={""} setSelectedMonth={() => {}}
@@ -85,7 +78,7 @@ export default function TransactionsPage() {
         <div className="bg-white rounded-3xl shadow-sm border border-[var(--color-outline-variant)] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-right">
-              <thead className="bg-[#EBF3FD] text-[#3C74A6] uppercase border-b-2 border-black/10">
+              <thead className="bg-[#375657] text-[#CFE8E8] uppercase border-b-2 border-black/10">
                 <tr>
                   <th className="px-4 py-3 font-black">תאריך</th>
                   <th className="px-4 py-3 font-black">בית עסק</th>
@@ -125,7 +118,7 @@ export default function TransactionsPage() {
                                     {getCategoryIcon(t.category)}
                                   </span>
                                 </span>
-                                <span className="font-black text-lg text-[var(--color-on-surface)]">
+                                <span className="font-black text-lg text-[#375657]">
                                   {t.category || "כללי"}
                                 </span>
                               </div>
@@ -136,10 +129,10 @@ export default function TransactionsPage() {
                           onClick={() => toggleRow(t.id)}
                           className="border-b border-[var(--color-outline-variant)] last:border-0 hover:bg-black/5 cursor-pointer transition-colors"
                         >
-                          <td className="px-4 py-3 whitespace-nowrap">
+                          <td className="px-4 py-3 whitespace-nowrap text-[#375657]">
                             {new Date(t.date).toLocaleDateString('he-IL')}
                           </td>
-                          <td className="px-4 py-3 font-medium text-[var(--color-on-surface)]">
+                          <td className="px-4 py-3 font-medium text-[#375657]">
                             {t.businessName || "לא ידוע"}
                           </td>
                           <td className="px-4 py-3 text-center">
@@ -153,25 +146,25 @@ export default function TransactionsPage() {
                               </span>
                             </span>
                           </td>
-                          <td className={`px-4 py-3 text-left font-bold whitespace-nowrap ${t.type === 'expense' ? 'text-[var(--color-error)]' : 'text-[var(--color-success)]'}`}>
+                          <td className={`px-4 py-3 text-left font-bold whitespace-nowrap ${t.type === 'expense' ? 'text-[#DB3800]' : 'text-[#CDF22A]'}`}>
                             {t.type === 'expense' ? '-' : '+'}₪{Math.abs(Number(t.amount)).toFixed(2)}
                           </td>
                         </tr>
                         {expandedRows[t.id] && (
                           <tr className="bg-black/5 border-b border-[var(--color-outline-variant)]">
-                            <td colSpan={4} className="px-4 py-4 text-xs text-[var(--color-on-surface-variant)]">
+                            <td colSpan={4} className="px-4 py-4 text-xs text-[#375657]/70">
                               <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                  <span className="font-bold">סכום מקורי:</span> {t.originalAmount ? t.originalAmount : "לא זמין"}
+                                  <span className="font-bold text-[#375657]">סכום מקורי:</span> {t.originalAmount ? t.originalAmount : "לא זמין"}
                                 </div>
                                 <div>
-                                  <span className="font-bold">מטבע מקורי:</span> {t.currency || "₪"}
+                                  <span className="font-bold text-[#375657]">מטבע מקורי:</span> {t.currency || "₪"}
                                 </div>
                                 <div>
-                                  <span className="font-bold">סוג עסקה:</span> {t.transactionType || "רגיל"}
+                                  <span className="font-bold text-[#375657]">סוג עסקה:</span> {t.transactionType || "רגיל"}
                                 </div>
                                 <div>
-                                  <span className="font-bold">סיווג:</span> {t.type === 'expense' ? 'הוצאה' : 'הכנסה'}
+                                  <span className="font-bold text-[#375657]">סיווג:</span> {t.type === 'expense' ? 'הוצאה' : 'הכנסה'}
                                 </div>
                               </div>
                             </td>
@@ -191,7 +184,7 @@ export default function TransactionsPage() {
       {isSortOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200" dir="rtl">
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200">
-            <div className="p-4 border-b border-black/10 flex justify-between items-center bg-[#EBF3FD] text-[#3C74A6]">
+            <div className="p-4 border-b border-black/10 flex justify-between items-center bg-[#375657] text-[#CFE8E8]">
               <h3 className="font-black text-lg">מיון נתונים</h3>
               <button onClick={() => setIsSortOpen(false)} className="material-symbols-outlined hover:text-black">close</button>
             </div>
@@ -202,7 +195,7 @@ export default function TransactionsPage() {
                 <select 
                   value={sortField}
                   onChange={(e) => setSortField(e.target.value)}
-                  className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F2AE2E] transition-colors"
+                  className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F211AF] transition-colors"
                 >
                   <option value="date">תאריך</option>
                   <option value="businessName">בית עסק (א-ב)</option>
@@ -216,7 +209,7 @@ export default function TransactionsPage() {
                 <select 
                   value={sortOrder}
                   onChange={(e) => setSortOrder(e.target.value as "asc"|"desc")}
-                  className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F2AE2E] transition-colors"
+                  className="w-full bg-black/5 border border-black/10 rounded-2xl px-3 py-3 text-[var(--color-on-surface)] focus:outline-none focus:border-[#F211AF] transition-colors"
                 >
                   <option value="desc">יורד (גבוה לנמוך / חדש לישן)</option>
                   <option value="asc">עולה (נמוך לגבוה / ישן לחדש)</option>
@@ -227,7 +220,7 @@ export default function TransactionsPage() {
             <div className="p-4 border-t border-[var(--color-outline-variant)] bg-black/5">
               <button 
                 onClick={() => setIsSortOpen(false)}
-                className="w-full bg-[#034AA6] hover:bg-[#3C74A6] text-white rounded-2xl py-3 font-bold active:scale-95 transition-all"
+                className="w-full bg-[#11EEF2] hover:bg-[#11EEF2]/80 text-[#375657] rounded-2xl py-3 font-bold active:scale-95 transition-all"
               >
                 החל מיון
               </button>
